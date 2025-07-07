@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Web Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html{
+      height: 100vh;
+    }
+    
+    body {
+      background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533d7b);
+      background-size: 400% 400%;
+      color: #e6e6e6;
+      padding: 20px;
+      min-height: 100vh;
+      animation: gradient 15s ease infinite;
+      overflow-x: hidden;
+      height: 100vh;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(30, 30, 46, 0.85);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 1s ease-out;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(100, 255, 255, 0.05) 0%, rgba(255,255,255,0) 70%);
+      animation: pulse 8s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #00d1cd;
+      margin-bottom: 10px;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      color: #00d1cd;
+      margin: 25px 0 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #00d1cd;
+      animation: underlineExpand 0.5s ease-out forwards;
+    }
+
+    @keyframes underlineExpand {
+      from {
+        width: 0;
+      }
+      to {
+        width: 50px;
+      }
+    }
+
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #c9c9c9;
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    ul li {
+      padding: 8px 0;
+      padding-left: 30px;
+      position: relative;
+      animation: slideInListItem 0.5s ease-out forwards;
+      opacity: 0;
+      color: #e6e6e6;
+    }
+
+    ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #00d1cd;
+      font-weight: bold;
+    }
+
+    @keyframes slideInListItem {
+      from {
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Add delay to each list item */
+    ul li:nth-child(1) { animation-delay: 0.4s; }
+    ul li:nth-child(2) { animation-delay: 0.5s; }
+    ul li:nth-child(3) { animation-delay: 0.6s; }
+    ul li:nth-child(4) { animation-delay: 0.7s; }
+    ul li:nth-child(5) { animation-delay: 0.8s; }
+    ul li:nth-child(6) { animation-delay: 0.9s; }
+    ul li:nth-child(7) { animation-delay: 1.0s; }
+    ul li:nth-child(8) { animation-delay: 1.1s; }
+    ul li:nth-child(9) { animation-delay: 1.2s; }
+    ul li:nth-child(10) { animation-delay: 1.3s; }
+    ul li:nth-child(11) { animation-delay: 1.4s; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00d1cd;
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 209, 205, 0.3);
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #00b3af;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 209, 205, 0.4);
+      color: #fff;
+    }
+
+    /* Floating bubbles background */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(0, 209, 205, 0.1);
+      border-radius: 50%;
+      animation: float linear infinite;
+      border: 1px solid rgba(0, 209, 205, 0.2);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles">
+    <!-- Bubbles will be added by JS -->
+  </div>
+  
+  <div class="container">
+    <h1>👋 Hi, I'm Raja</h1>
+    <p>
+      I'm a web developer who builds clean, simple, and user-friendly websites.
+      I enjoy learning new things and helping small businesses get online easily.
+    </p>
+
+    <h2>💼 Services I Can Offer</h2>
+    <ul>
+      <li>🌐 Create simple websites (1–3 pages)</li>
+      <li>🎨 Design attractive landing pages or portfolios</li>
+      <li>✨ Add animations, buttons, and user interactions</li>
+      <li>🔳 QR code posters with your website link</li>
+      <li>🏪 Basic websites for shops, salons, or services</li>
+      <li>📱 Mobile responsive design</li>
+      <li>🖼️ Image sliders using HTML/CSS/JS</li>
+      <li>🍔 Navigation menus (header, sidebar, hamburger menu)</li>
+      <li>⏳ Loading screen animations</li>
+      <li>📝 Form validation using JavaScript</li>
+      <li>🎭 Simple effects like typewriter, scroll reveal, etc.</li>
+    </ul>
+
+    <br/>
+
+    <a href="https://wa.me/919047854498" class="btn" target="_blank">
+      📲 Contact Me on WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // Create floating bubbles
+    const bubblesContainer = document.querySelector('.bubbles');
+    const bubbleCount = 20;
+    
+    for (let i = 0; i < bubbleCount; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      
+      // Random size between 10 and 100px
+      const size = Math.random() * 90 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      
+      // Random position
+      bubble.style.left = `${Math.random() * 100}%`;
+      
+      // Random animation duration between 10s and 20s
+      const duration = Math.random() * 10 + 10;
+      bubble.style.animationDuration = `${duration}s`;
+      
+      // Random delay
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      
+      bubblesContainer.appendChild(bubble);
+    }
+    
+    // Add hover effect to list items
+    const listItems = document.querySelectorAll('li');
+    listItems.forEach(item => {
+      item.addEventListener('mouseover', () => {
+        item.style.transform = 'translateX(5px)';
+        item.style.transition = 'transform 0.2s ease';
+      });
+      item.addEventListener('mouseout', () => {
+        item.style.transform = 'translateX(0)';
+      });
+    });
+  </script>
+</body>
+</html>
