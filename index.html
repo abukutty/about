@@ -12,10 +12,10 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    html{
+    html {
       height: 100vh;
     }
-    
+
     body {
       background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533d7b);
       background-size: 400% 400%;
@@ -28,15 +28,9 @@
     }
 
     @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
@@ -66,23 +60,13 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -92,14 +76,8 @@
     }
 
     @keyframes slideIn {
-      from {
-        transform: translateX(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     h2 {
@@ -121,12 +99,8 @@
     }
 
     @keyframes underlineExpand {
-      from {
-        width: 0;
-      }
-      to {
-        width: 50px;
-      }
+      from { width: 0; }
+      to { width: 50px; }
     }
 
     p {
@@ -159,17 +133,10 @@
     }
 
     @keyframes slideInListItem {
-      from {
-        transform: translateX(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
-    /* Add delay to each list item */
     ul li:nth-child(1) { animation-delay: 0.4s; }
     ul li:nth-child(2) { animation-delay: 0.5s; }
     ul li:nth-child(3) { animation-delay: 0.6s; }
@@ -192,7 +159,7 @@
       transition: all 0.3s;
       font-weight: 600;
       box-shadow: 0 4px 15px rgba(0, 209, 205, 0.3);
-      margin-top: 10px;
+      margin: 10px 10px 0 0;
       border: none;
       cursor: pointer;
     }
@@ -204,7 +171,6 @@
       color: #fff;
     }
 
-    /* Floating bubbles background */
     .bubbles {
       position: fixed;
       top: 0;
@@ -225,21 +191,13 @@
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="bubbles">
-    <!-- Bubbles will be added by JS -->
-  </div>
+  <div class="bubbles"></div>
   
   <div class="container">
     <h1>👋 Hi, I'm Raja</h1>
@@ -265,8 +223,14 @@
 
     <br/>
 
+    <!-- WhatsApp Contact Button -->
     <a href="https://wa.me/919047854498" class="btn" target="_blank">
       📲 Contact Me on WhatsApp
+    </a>
+
+    <!-- New Dry Service Page Button -->
+    <a href="https://iioavaraa.neocities.org/new/Dry/dry" class="btn" target="_blank">
+      🚀  Sample
     </a>
   </div>
 
@@ -274,30 +238,26 @@
     // Create floating bubbles
     const bubblesContainer = document.querySelector('.bubbles');
     const bubbleCount = 20;
-    
+
     for (let i = 0; i < bubbleCount; i++) {
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
-      
-      // Random size between 10 and 100px
+
       const size = Math.random() * 90 + 10;
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
-      
-      // Random position
+
       bubble.style.left = `${Math.random() * 100}%`;
-      
-      // Random animation duration between 10s and 20s
+
       const duration = Math.random() * 10 + 10;
       bubble.style.animationDuration = `${duration}s`;
-      
-      // Random delay
+
       bubble.style.animationDelay = `${Math.random() * 5}s`;
-      
+
       bubblesContainer.appendChild(bubble);
     }
-    
-    // Add hover effect to list items
+
+    // Hover effect on list items
     const listItems = document.querySelectorAll('li');
     listItems.forEach(item => {
       item.addEventListener('mouseover', () => {
